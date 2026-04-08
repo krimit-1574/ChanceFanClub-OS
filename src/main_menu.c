@@ -32,6 +32,7 @@ int main() {
         printf("\n==========================================\n");
         printf("    OPERATING SYSTEMS FINAL PROJECT\n");
         printf("==========================================\n");
+        printf("------Main Menu------\n");
         printf("1. Peterson's Solution\n");
         printf("2. File Management\n");
         printf("3. Contiguous Memory Allocation\n");
