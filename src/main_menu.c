@@ -1,5 +1,5 @@
 // Krimit Patel A00481150
-#include "logger_helper.h"
+#include "logger_api.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/wait.h>
@@ -11,12 +11,12 @@ void run_module(const char *module_name) {
     perror("Fork failed in main menu");
   } else if (pid == 0) {
     // Child
-    execl(module_name, module_name, NULL);
+    execl(module_name, module_name, NULL); // NULL signifies end of arguments
     perror("Exec failed for module");
     exit(1);
   } else {
     // Parent waits for child program to finish completely
-    waitpid(pid, NULL, 0);
+    waitpid(pid, NULL, 0); // 0 parameter means wait here without any condition
   }
 }
 
@@ -74,5 +74,5 @@ int main() {
       printf("Invalid choice. Please pick between 1-5.\n");
     }
   }
-  return 0;
+  return 0; // Completed successfully
 }

@@ -1,5 +1,5 @@
-#Krimit Patel A00481150
 #!/bin/bash
+#Krimit Patel A00481150
 
 echo "1. Cleaning Old Build and Logs..."
 rm -rf bin logs
