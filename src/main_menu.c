@@ -1,5 +1,5 @@
 // Krimit Patel A00481150
-#include "logger_api.h"
+#include "logger_helper.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/wait.h>
@@ -30,17 +30,17 @@ int main() {
   int choice;
   log_action("System Started. Main Menu initialized.");
 
+  printf("\n==========================================\n");
+  printf("    OPERATING SYSTEMS FINAL PROJECT\n");
+  printf("==========================================\n");
+
   while (1) {
-    printf("\n==========================================\n");
-    printf("    OPERATING SYSTEMS FINAL PROJECT\n");
-    printf("==========================================\n");
-    printf("------Main Menu------\n");
+    printf("\n------Main Menu------\n");
     printf("1. Peterson's Solution\n");
     printf("2. File Management\n");
     printf("3. Contiguous Memory Allocation\n");
     printf("4. Amdahl's Law\n");
     printf("5. Exit System\n");
-    printf("==========================================\n");
     printf("Enter your choice: ");
 
     if (scanf("%d", &choice) != 1) {

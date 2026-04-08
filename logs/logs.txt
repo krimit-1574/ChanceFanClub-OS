@@ -1,0 +1,6 @@
+[2026-04-08 10:56:41] System Started. Main Menu initialized.
+[2026-04-08 10:56:48] User selected Amdahl's Law.
+[2026-04-08 10:56:49] User entered Amdahl's Law module.
+[2026-04-08 10:57:11] Amdahl: Calculated speedup 1.4286 (P=0.40, N=4).
+[2026-04-08 10:57:32] User returned to Main Menu from Amdahl's law.
+[2026-04-08 10:57:51] User exited the system.

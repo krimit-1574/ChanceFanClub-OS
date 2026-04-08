@@ -1,6 +1,6 @@
 // Krimit Patel A00481150
 
-#include "logger_api.h"
+#include "logger_helper.h"
 #include <stdio.h>
 
 void clear_buffer_amdahl() {

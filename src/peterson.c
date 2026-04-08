@@ -7,7 +7,7 @@
 #include <unistd.h>
 #include <sys/mman.h>
 #include <sys/wait.h>
-#include "logger_api.h" // Include our custom logger
+#include "logger_helper.h" // Include our custom logger
 
 // Define a structure for our shared memory
 typedef struct {
@@ -31,7 +31,7 @@ int main() {
     shared->flag[1] = 0;
     shared->turn = 0;
 
-    send_log("Peterson", "Starting Peterson's Solution Simulation");
+    log_action("Starting Peterson's Solution Simulation");
 
     // 2. Fork to create two processes
     pid_t pid = fork();
@@ -65,7 +65,7 @@ int main() {
         shared->turn = other_process; 
 
         snprintf(log_msg, sizeof(log_msg), "Process %d: Entering ENTRY section.", process_id);
-        send_log("Peterson", log_msg);
+        log_action(log_msg);
 
         // Busy Waiting Loop 
         // "While the other process wants to enter AND it is the other process's turn, I will wait."
@@ -75,20 +75,20 @@ int main() {
 
         // --- CRITICAL SECTION --- [cite: 19]
         snprintf(log_msg, sizeof(log_msg), "Process %d: Entering CRITICAL section.", process_id);
-        send_log("Peterson", log_msg);
+        log_action(log_msg);
         
         printf("Process %d is inside the Critical Section.\n", process_id);
         sleep(1); // Simulate work being done to prove mutual exclusion
 
         snprintf(log_msg, sizeof(log_msg), "Process %d: Leaving CRITICAL section.", process_id);
-        send_log("Peterson", log_msg);
+        log_action(log_msg);
 
         // --- EXIT SECTION --- [cite: 19]
         // Indicate this process is done and no longer wants to enter
         shared->flag[process_id] = 0; 
         
         snprintf(log_msg, sizeof(log_msg), "Process %d: In EXIT section. Flag set to 0.", process_id);
-        send_log("Peterson", log_msg);
+        log_action(log_msg);
         
         // Simulating some non-critical work before looping again
         sleep(1); 
@@ -100,7 +100,7 @@ int main() {
         wait(NULL); 
         // Free the shared memory
         munmap(shared, sizeof(SharedData));
-        send_log("Peterson", "Simulation complete. Shared memory unmapped.");
+        log_action("Simulation complete. Shared memory unmapped.");
         printf("Peterson's simulation completed successfully.\n");
     }
 
