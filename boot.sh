@@ -1,3 +1,4 @@
+#Krimit Patel A00481150
 #!/bin/bash
 
 echo "1. Cleaning Old Build and Logs..."
